@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVVM_PMRI.VistaModelo;
+using MVVM_PMRI.VistaModelo.VMpokemon;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,7 @@ namespace MVVM_PMRI.Vista
 		public Crudpokemon ()
 		{
 			InitializeComponent ();
-		}
+            
+        }
 	}
 }

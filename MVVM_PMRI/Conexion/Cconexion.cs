@@ -8,6 +8,6 @@ namespace MVVM_PMRI.Conexion
 {
     public class Cconexion
     {
-        public static FirebaseClient firebase = new FirebaseClient("https://mvvmpmri-default-rtdb.firebaseio.com/");
+        public static FirebaseClient firebase = new FirebaseClient("https://mvvmpmri-bd125-default-rtdb.firebaseio.com/");
     }
 }

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM_PMRI.Vista.Pokemon.Mostrarpokemon"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="53,*" BackgroundColor="#EAEDEC">
+        <StackLayout Orientation="Horizontal" Margin="3">
+            <Image Source="https://i.ibb.co/4gThFQR/haciaatrasnegra.png" 
+                   WidthRequest="50" HeightRequest="50"
+                   Aspect="AspectFit">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Volvercommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="https://i.ibb.co/qnF5MjL/International-Pok-mon-logo-svg.png" 
+                   HorizontalOptions="CenterAndExpand"
+                   WidthRequest="150" HeightRequest="100"
+                   Aspect="AspectFit"/>
+            <Image Source="https://i.ibb.co/VWhKzCb/pokebola.png" 
+                   WidthRequest="50" HeightRequest="50"
+                   Aspect="AspectFit"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1" Margin="10">
+            <Button Text="Eliminar" BackgroundColor="#FF3333" TextColor="White" 
+                    CornerRadius="5" BorderWidth="1" BorderColor="#CC0000"
+                    Margin="0,0,0,10"/>
+            <Button Text="Editar" BackgroundColor="#4682B4" TextColor="White" 
+                    CornerRadius="5" BorderWidth="1" BorderColor="#1E90FF"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>
+

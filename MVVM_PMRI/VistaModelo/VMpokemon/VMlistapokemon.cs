@@ -4,12 +4,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using MVVM_PMRI.Vista;
 using MVVM_PMRI.Modelo;
-using MVVM_PMRI.VistaModelo;
+using MVVM_PMRI.Vista.Pokemon;
 using MVVM_PMRI.Datos;
 using System.Collections.ObjectModel;
-using MVVM_PMRI.Vista.Pokemon;
+using MVVM_PMRI.VistaModelo;
 
 namespace MVVM_PMRI.VistaModelo.VMpokemon
 {
@@ -19,16 +18,14 @@ namespace MVVM_PMRI.VistaModelo.VMpokemon
         string _Texto;
         ObservableCollection<Mpokemon> _Listapokemon;
         #endregion
-        #region CONSTRUCTOR
+        #region CONTRUCTOR
         public VMlistapokemon(INavigation navigation)
         {
             Navigation = navigation;
             Mostrarpokemon();
         }
-
         #endregion
         #region OBJETOS
-
         public ObservableCollection<Mpokemon> Listapokemon
         {
             get { return _Listapokemon; }
@@ -40,6 +37,10 @@ namespace MVVM_PMRI.VistaModelo.VMpokemon
         }
         #endregion
         #region PROCESOS
+        public async Task Mostrardetallespokemon()
+        {
+            await Navigation.PushAsync(new Mostrarpokemon());
+        }
         public async Task Mostrarpokemon()
         {
             var function = new Dpokemon();
@@ -49,7 +50,6 @@ namespace MVVM_PMRI.VistaModelo.VMpokemon
         {
             await Navigation.PushAsync(new Registrarpokemon());
         }
-
         public void ProcesoSimple()
         {
 
@@ -57,7 +57,10 @@ namespace MVVM_PMRI.VistaModelo.VMpokemon
         #endregion
         #region COMANDOS
         public ICommand Iraregistrocommand => new Command(async () => await Iraregistro());
+        public ICommand Mostrardetallespokemoncommand => new Command(async () => await Mostrardetallespokemon());
         public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
         #endregion
     }
 }
+
+

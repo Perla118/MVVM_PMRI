@@ -4,29 +4,29 @@
              x:Class="MVVM_PMRI.Vista.Pokemon.Registrarpokemon"
              NavigationPage.HasNavigationBar="False">
     <Grid RowDefinitions="80,*"
-         BackgroundColor="#1d1d1d">
+         BackgroundColor="#White">
         <StackLayout Orientation="Horizontal" Margin="15">
 
-            <Image Source="https://i.ibb.co/kM7KqjK/haciaatras.png" WidthRequest="40">
+            <Image Source="https://i.ibb.co/4gThFQR/haciaatrasnegra.png" WidthRequest="40">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Volvercommand}"/>
                 </Image.GestureRecognizers>
             </Image>
-            <Image Source="https://i.ibb.co/VWGZZwP/logo.png" HorizontalOptions="CenterAndExpand"/>
+            <Image Source="https://i.ibb.co/qnF5MjL/International-Pok-mon-logo-svg.png" HorizontalOptions="CenterAndExpand"/>
             <Image Source="https://i.ibb.co/VWhKzCb/pokebola.png"/>
             
         </StackLayout>
         <StackLayout Grid.Row="1" Margin="10">
             <StackLayout Orientation="Horizontal">
                 <Label Text="Nombre: "
-                       TextColor="White"
+                       TextColor="Black"
                        FontAttributes="Bold"
                        VerticalOptions="Center"
                        FontSize="18"/>
                 <Entry Placeholder="Ingrese el nombre"
                        FontAttributes="Bold"
                        TextColor="#ffeb72"
-                       PlaceholderColor="White"
+                       PlaceholderColor="Black"
                        TextTransform="Lowercase"
                        HorizontalOptions="StartAndExpand"
                        Text="{Binding Txtnombre}"/>
@@ -34,14 +34,14 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Color fondo: "
-                        TextColor="White"
+                        TextColor="Black"
                         FontAttributes="Bold"
                 VerticalOptions="Center"
                 FontSize="18"/>
                 <Entry Placeholder="Ingrese el color fondo"
                 FontAttributes="Bold"
                  TextColor="#ffeb72"
-                 PlaceholderColor="White"
+                 PlaceholderColor="Black"
                  TextTransform="Lowercase"
                  HorizontalOptions="StartAndExpand"
                        Text="{Binding Txtcolorfondo}"/>
@@ -49,14 +49,14 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Número: "
-                         TextColor="White"
+                         TextColor="Black"
                          FontAttributes="Bold"
                         VerticalOptions="Center"
                          FontSize="18"/>
                 <Entry Placeholder="Ingrese el número"
                         FontAttributes="Bold"
                      TextColor="#ffeb72"
-                     PlaceholderColor="White"
+                     PlaceholderColor="Black"
                          TextTransform="Lowercase"
                      HorizontalOptions="StartAndExpand"
                        Text="{Binding Txtnro}"/>
@@ -64,28 +64,28 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Icono: "
-                      TextColor="White"
+                      TextColor="Black"
                      FontAttributes="Bold"
                      VerticalOptions="Center"
                     FontSize="18"/>
                 <Entry Placeholder="Ingrese el icono"
                       FontAttributes="Bold"
                       TextColor="#ffeb72"
-                      PlaceholderColor="White"
+                      PlaceholderColor="Black"
                       HorizontalOptions="StartAndExpand"
                        Text="{Binding Txticono}"/>
 
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Poder: "
-                         TextColor="White"
+                         TextColor="Black"
                      FontAttributes="Bold"
                      VerticalOptions="Center"
                          FontSize="18"/>
                 <Entry Placeholder="Ingrese el poder"
                          FontAttributes="Bold"
                      TextColor="#ffeb72"
-                     PlaceholderColor="White"
+                     PlaceholderColor="Black"
                      TextTransform="Lowercase"
                      HorizontalOptions="StartAndExpand"
                        Text="{Binding Txtpoder}"/>
@@ -93,14 +93,14 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Color poder: "
-                 TextColor="White"
+                 TextColor="Black"
                      FontAttributes="Bold"
                      VerticalOptions="Center"
                      FontSize="18"/>
                 <Entry Placeholder="Ingrese el color poder"
                      FontAttributes="Bold"
                      TextColor="#ffeb72"
-                     PlaceholderColor="White"
+                     PlaceholderColor="Black"
                      TextTransform="Lowercase"
                         HorizontalOptions="StartAndExpand"
                        Text="{Binding Txtcolorpoder}"/>
@@ -108,11 +108,11 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center">
-                <Image Source="https://i.ibb.co/H799GYp/ojo-1.png"
+                <Image Source="https://i.ibb.co/DG2LJhj/ojo.png"
                        HeightRequest="20"/>
                 <Label Text="Vista previa"
                        FontSize="20"
-                       TextColor="White"
+                       TextColor="Black"
                        FontAttributes="Italic"
                        VerticalOptions="Center"/>
             </StackLayout>
