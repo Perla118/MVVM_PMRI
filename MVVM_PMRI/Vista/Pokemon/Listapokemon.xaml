@@ -1,66 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVVM_PMRI.Vista.Pokemon.Listapokemon"
+             x:Class="MVVM_implementacion_Jerh.Vista.Pokemon.Listapokemon"
              NavigationPage.HasNavigationBar="False">
+
     <Grid RowDefinitions="60,*"
-      BackgroundColor="#FSF6F6">
-        <Label Text="POKEDEX"
-           HorizontalOptions="Center"
-           VerticalOptions="Center"
-           FontSize="40"
-           FontAttributes="Bold"
-           TextColor="#FD8298"/>
-        <CollectionView BackgroundColor="#EAEDEC"
-                        Grid.Row="1"
-                        ItemsSource="{Binding Listapokemon}"
-                        Margin="0,0,0,0"
-                        x:Name="mostrarpokemon">
+          BackgroundColor="#FSF6F6">
+
+        <Label Text="POKEDEX" HorizontalOptions="Center" VerticalOptions="Center" FontSize="28" FontAttributes="Bold" TextColor="#FD8298"/>
+
+        <CollectionView BackgroundColor="White"
+                        x:Name="Listado"
+                            Grid.Row="1"
+                            ItemsSource="{Binding Listapokemon}"
+                            Margin="0,0,0,0">
+
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2"
-                                 HorizontalItemSpacing="10"/>
+
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
+
             </CollectionView.ItemsLayout>
+
             <CollectionView.ItemTemplate>
+
                 <DataTemplate>
-                    <Grid RowDefinitions="100,*"
-                        Margin="0,0,0,0">
+
+                    <Grid RowDefinitions="100, *"
+                          Margin="10,10,0,0">
+
                         <Frame Grid.Row="1" WidthRequest="250"
-                            HorizontalOptions="Center"
-                            CornerRadius="15"
-                            Margin="10,-60,5,0"
-                            BackgroundColor="{Binding Colorfondo}"
-                               HasShadow="False">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:Reference Name=mostrarpokemon}, Path=BindingContext.Mostrardetallespokemoncommand}"
-                                                      CommandParameter="{Binding .}" />
-                            </Frame.GestureRecognizers>
-                            <StackLayout
-                                Margin="0,62,0,0">
-                                <Label Text="{Binding NroOrden}" TextColor="Gray"/>
+                               HorizontalOptions="Center"
+                               CornerRadius="15"
+                               Margin="10,-68,10,0"
+                              BackgroundColor="{Binding Colorfondo}"
+                                       HasShadow="False">
+
+
+
+                            <StackLayout 
+                                Margin="0,70,0,0">
+                                <Label Text="{Binding NroOrden}"/>
                                 <Label Text="{Binding Nombre}"
-                                    TextColor="Black"
-                                    CharacterSpacing="1"
-                                    FontSize="20"
-                                    Margin="0,0,0,5"/>
+                                       CharacterSpacing="1"
+                                       FontSize="20"
+                                       Margin="0,0,0,5"/>
                                 <Button Text="{Binding Poder}"
-                                    TextColor="Black"
-                                    CornerRadius="30"
-                                    HorizontalOptions="Start"
-                                    TextTransform="None"
-                                    HeightRequest="40"
-                                    BackgroundColor="{Binding Colorpoder}"/>
+                                        CornerRadius="30"
+                                        HorizontalOptions="Start"
+                                        TextTransform="None"
+                                        HeightRequest="40"
+                                        Margin="-18,0,-20,0"
+                                        BackgroundColor="{Binding ColorPoder}"/>
+
+
+
                             </StackLayout>
                         </Frame>
-                            <Image Source="{Binding Icono}"
-                                Grid.RowSpan="2"
-                                HeightRequest="130"
-                                VerticalOptions="StartAndExpand"
-                                Margin="0,5,0,0"/>
+
+                        <Image Source="{Binding Icono}"
+                               Grid.RowSpan="2"
+                               HeightRequest="160"
+                              Margin="45,0,0,0"
+                               VerticalOptions="StartAndExpand"/>
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.IraEditarcommand,Source={x:Reference Listado}}" CommandParameter="{Binding .}"/>
+                        </Grid.GestureRecognizers>
                     </Grid>
+
                 </DataTemplate>
+
             </CollectionView.ItemTemplate>
-            
+
         </CollectionView>
+
         <Button Text="+"
                 Grid.Row="1"
                 HeightRequest="100"
@@ -72,7 +85,7 @@
                 FontSize="50"
                 FontAttributes="Bold"
                 BackgroundColor="#FFD755"
-                Command="{Binding Iraregistrocommand}"/>
+                Command="{Binding IrARegistrocommand}"/>
 
     </Grid>
 </ContentPage>

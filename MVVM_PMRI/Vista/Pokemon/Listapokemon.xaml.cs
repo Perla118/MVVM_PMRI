@@ -13,15 +13,29 @@ namespace MVVM_PMRI.Vista.Pokemon
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Listapokemon : ContentPage
     {
-        
+
+        //activar solo esto para cuando este ejecutando la aplicacion en tiempo real
+        /*
+            public Listapokemon()
+            { 
+                InitializeComponent();
+                BindingContext = new VMlistapokemon(Navigation);//activar solo esto para cuando este ejecutando la aplicacion en tiempo real
+            }
+            */
+        VMlistapokemon vM;//esto es para cuando este usando lista
         public Listapokemon()
         {
-            InitializeComponent();
-            BindingContext = new VMlistapokemon(Navigation);
-            
-
+            InitializerComponent();
+            vM = new VMlistapokemon(Navigation);
+            BindingContext = vM;
+            this.Appearing += Listapokemon_Appearing;
         }
 
-        
+        //desactivarlo cuando este usando la aplicacion en tiempo real
+        private async void Listapokemon_Appearing(object sender, EventArgs e)
+        {
+            await vM.Mostrarpokemon();
+        }
+
     }
 }

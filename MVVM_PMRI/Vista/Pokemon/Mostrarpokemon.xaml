@@ -1,33 +1,208 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVVM_PMRI.Vista.Pokemon.Mostrarpokemon"
+             x:Class="MVVM_PMRI.Vista.Pokemon.Mostrarpokemon"             
              NavigationPage.HasNavigationBar="False">
 
-    <Grid RowDefinitions="53,*" BackgroundColor="#EAEDEC">
-        <StackLayout Orientation="Horizontal" Margin="3">
-            <Image Source="https://i.ibb.co/4gThFQR/haciaatrasnegra.png" 
-                   WidthRequest="50" HeightRequest="50"
-                   Aspect="AspectFit">
+    <Grid RowDefinitions="80,*"
+          BackgroundColor="#1d1d1d">
+        <StackLayout Orientation="Horizontal" Padding="15">
+
+            <Image Source="https://i.ibb.co/qNhwNHd/flecha-izquierda.png" WidthRequest="40">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Volvercommand}"/>
                 </Image.GestureRecognizers>
+
             </Image>
-            <Image Source="https://i.ibb.co/qnF5MjL/International-Pok-mon-logo-svg.png" 
-                   HorizontalOptions="CenterAndExpand"
-                   WidthRequest="150" HeightRequest="100"
-                   Aspect="AspectFit"/>
-            <Image Source="https://i.ibb.co/VWhKzCb/pokebola.png" 
-                   WidthRequest="50" HeightRequest="50"
-                   Aspect="AspectFit"/>
+            <Image Source="https://i.ibb.co/Xk4ZkSp/International-Pok-mon-logo-svg.png"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Image Source="https://i.ibb.co/MCTn4b2/pokebola.png"/>
         </StackLayout>
+
         <StackLayout Grid.Row="1" Margin="10">
-            <Button Text="Eliminar" BackgroundColor="#FF3333" TextColor="White" 
-                    CornerRadius="5" BorderWidth="1" BorderColor="#CC0000"
-                    Margin="0,0,0,10"/>
-            <Button Text="Editar" BackgroundColor="#4682B4" TextColor="White" 
-                    CornerRadius="5" BorderWidth="1" BorderColor="#1E90FF"/>
+            <!--Nombre-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nombre: "
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <Entry Placeholder="Ingrese el nombre" 
+                       FontAttributes="Bold" 
+                       TextColor="#ffeb72"
+                       PlaceholderColor="White"
+                     
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding _poquimon.Nombre}"/>
+            </StackLayout>
+            <!--Ingrese el color fondo-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="color fondo: "
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <Entry Placeholder="Ingrese el color fondo" 
+                       FontAttributes="Bold" 
+                       TextColor="#ffeb72"
+                       PlaceholderColor="White"
+                       TextTransform="Lowercase"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding _poquimon.Colorfondo}"/>
+            </StackLayout>
+            <!--Ingrese el número-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Número: "
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="18"
+                       />
+
+                <Entry Placeholder="Ingrese el número" 
+                       FontAttributes="Bold" 
+                       TextColor="#ffeb72"
+                       PlaceholderColor="White"
+                       TextTransform="Lowercase"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding _poquimon.NroOrden}"
+                       Keyboard="Numeric"/>
+            </StackLayout>
+            <!--Icono-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Icono: "
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <Entry Placeholder="Ingrese el Icono" 
+                       FontAttributes="Bold" 
+                       TextColor="#ffeb72"
+                       PlaceholderColor="White"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding _poquimon.Icono}"
+                       />
+            </StackLayout>
+            <!--Ingrese el poder-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Poder: "
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <Entry Placeholder="Ingrese el poder" 
+                       FontAttributes="Bold" 
+                       TextColor="#ffeb72"
+                       PlaceholderColor="White"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding _poquimon.Poder}"/>
+            </StackLayout>
+            <!--Ingrese el color del poder-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Color del poder: "
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <Entry Placeholder="Ingrese el color del poder" 
+                       FontAttributes="Bold" 
+                       TextColor="#ffeb72"
+                       PlaceholderColor="White"
+                       TextTransform="Lowercase"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding _poquimon.ColorPoder}"/>
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+                <Image Source="https://i.ibb.co/2v6RK8d/eye.png"
+                       HeightRequest="20"/>
+                <Label Text="Vista previa"
+                       FontSize="20"
+                       TextColor="White"
+                       FontAttributes="Italic"
+                       VerticalOptions="Center"/>
+            </StackLayout>
+
+            <Grid RowDefinitions="100, *"
+                  Margin="0,10,0,0">
+                <Frame Grid.Row="1" WidthRequest="250"
+                       HorizontalOptions="Center"
+                       CornerRadius="15"
+                       Margin="0,-38,0,0"
+                      BackgroundColor="{Binding TxtColorFondo}">
+                    <StackLayout 
+                        Margin="0,70,0,0">
+                        <Label Text="{Binding TxtNro}"/>
+                        <Label Text="{Binding _poquimon.Idpokemon}"/>
+                        <Label Text="{Binding TxtNombre}"
+                               CharacterSpacing="1"
+                               FontSize="20"
+                               Margin="0,0,0,5"/>
+                        <Button Text="{Binding TxtPoder}"
+                                CornerRadius="30"
+                                HorizontalOptions="Start"
+                                TextTransform="None"
+                                HeightRequest="40"
+                                BackgroundColor="{Binding TxtColorPoder}"/>
+                    </StackLayout>
+                </Frame>
+
+                <Image Source="{Binding TxtIcono}"
+                       Grid.RowSpan="2"
+                       HeightRequest="160"
+                       VerticalOptions="StartAndExpand"/>
+
+            </Grid>
+
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Frame HorizontalOptions="Center"
+                       Padding="6"
+                       Margin="0,0,5,0"
+                       CornerRadius="15"
+                       HasShadow="False"
+                       BackgroundColor="#FEC100">
+                    <Button
+                        Text="-"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Red"
+                        BorderColor="#FFE488"
+                        BorderWidth="6"
+                        CornerRadius="15"
+                        FontSize="25"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        Command="{Binding Eliminarcommand}"/>
+                </Frame>
+
+                <Frame HorizontalOptions="Center"
+                       Padding="6"
+                       Margin="0,0,0,0"
+                       CornerRadius="15"
+                       HasShadow="False"
+                       BackgroundColor="#FEC100">
+                    <Button
+                        ImageSource="https://i.ibb.co/hLMhCVb/editar-2.png"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Blue"
+                        BorderColor="#FFE488"
+                        BorderWidth="6"
+                        CornerRadius="15"
+                        FontSize="25"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        Command="{Binding Editarcommand}"/>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </Grid>
+
 </ContentPage>
 

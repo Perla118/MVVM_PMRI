@@ -13,84 +13,102 @@ namespace MVVM_PMRI.VistaModelo.VMpokemon
 {
     public class VMregistropokemon : BaseViewModel
     {
+        ////////////////////////////
+
+
         #region VARIABLES
-        string _Txtcolorfondo;
-        string _Txtcolorpoder;
-        string _Txtnombre;
-        string _Txtnro;
-        string _Txtpoder;
-        string _Txticono;
+        string _TxtColorFondo;
+        string _TxtColorPoder;
+        string _TxtNombre;
+        string _TxtNro;
+        string _TxtPoder;
+        string _TxtIcono;
+        string _TxtID;
         #endregion
-        #region CONSTRUCTOR
+        #region Contructor
         public VMregistropokemon(INavigation navigation)
         {
             Navigation = navigation;
         }
-
         #endregion
-        #region OBJETOS
+        #region Objetivo;
+        public string TxtColorFondo
+        {
+            get { return _TxtColorFondo; }
+            set { SetValue(ref _TxtColorFondo, value); }
+        }
+        public string TxtColorPoder
+        {
+            get { return _TxtColorPoder; }
+            set { SetValue(ref _TxtColorPoder, value); }
+        }
+        public string TxtNombre
+        {
+            get { return _TxtNombre; }
 
-        public string Txtcolorfondo
-        {
-            get { return _Txtcolorfondo; }
-            set { SetValue(ref _Txtcolorfondo, value); }
         }
-        public string Txtcolorpoder
+        //public string TxtID
+        //{
+        //    get { return _TxtID; }
+        //    set { SetValue(ref _TxtID, value); }
+        //}
+        public string TxtNro
         {
-            get { return _Txtcolorpoder; }
-            set { SetValue(ref _Txtcolorpoder, value); }
+            get { return _TxtNro; }
+            set { SetValue(ref _TxtNro, value); }
         }
-        public string Txtnombre
+        public string TxtPoder
         {
-            get { return _Txtnombre; }
-            set { SetValue(ref _Txtnombre, value); }
+            get { return _TxtPoder; }
+            set { SetValue(ref _TxtPoder, value); }
         }
-        public string Txtnro
+        public string TxtIcono
         {
-            get { return _Txtnro; }
-            set { SetValue(ref _Txtnro, value); }
+            get { return _TxtIcono; }
+            set { SetValue(ref _TxtIcono, value); }
         }
-        public string Txtpoder
-        {
-            get { return _Txtpoder; }
-            set { SetValue(ref _Txtpoder, value); }
-        }
-        public string Txticono
-        {
-            get { return _Txticono; }
-            set { SetValue(ref _Txticono, value); }
-        }
+
         #endregion
         #region PROCESOS
         public async Task Insertar()
         {
-            var function = new Dpokemon();
+            var funcion = new Dpokemon();
             var parametros = new Mpokemon();
-            parametros.Colorfondo = Txtcolorfondo;
-            parametros.Colorpoder = Txtcolorpoder;
-            parametros.Icono = Txticono;
-            parametros.Nombre = Txtnombre;
-            parametros.NroOrden = Txtnro;
-            parametros.Poder = Txtpoder;
-
-            await function.Insertarpokemon(parametros);
+            parametros.Colorfondo = TxtColorFondo;
+            parametros.ColorPoder = TxtColorPoder;
+            parametros.Icono = TxtIcono;
+            parametros.Nombre = TxtNombre;
+            parametros.NroOrden = TxtNro;
+            parametros.Poder = TxtPoder;
+            await funcion.Insertarpokemon(parametros);
             await Volver();
         }
+
 
         public async Task Volver()
         {
             await Navigation.PopAsync();
         }
 
-        public void ProcesoSimple()
-        {
 
-        }
-        #endregion
+
+        #endregion.
+        #region CONTRUCTOR
+
+        #endregion.
         #region COMANDOS
         public ICommand Insertarcommand => new Command(async () => await Insertar());
+
         public ICommand Volvercommand => new Command(async () => await Volver());
-        public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
+
         #endregion
+
+
+
+
+
+
+
+        ///////////////////////////
     }
 }

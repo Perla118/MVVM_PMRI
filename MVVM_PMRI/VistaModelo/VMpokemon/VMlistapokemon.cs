@@ -14,52 +14,80 @@ namespace MVVM_PMRI.VistaModelo.VMpokemon
 {
     public class VMlistapokemon : BaseViewModel
     {
+        ////////////////////////////
+
+
         #region VARIABLES
-        string _Texto;
-        ObservableCollection<Mpokemon> _Listapokemon;
+
+
+        // ObservableCollection<Mpokemon> _Listapokemon;//tiempo real 
+        List<Mpokemon> _Listapokemon;// este no sirve para el tiempo real
         #endregion
-        #region CONTRUCTOR
+        #region Contructor
         public VMlistapokemon(INavigation navigation)
         {
             Navigation = navigation;
             Mostrarpokemon();
         }
         #endregion
-        #region OBJETOS
+        #region Objetivo;
+        //Este sirve para que la aplicacion corra en tiempo real
+        /*
         public ObservableCollection<Mpokemon> Listapokemon
+        {
+            get { return _Listapokemon; }
+            set { SetValue(ref _Listapokemon, value);
+                OnpropertyChanged();//es nesario para actualizar tus datos si despues de hacer algun cambio a tus registros o tiempo real
+            
+            }
+        }
+        
+         */
+
+        //este sirve para que el la aplicacion optenga una lista No es en tiempo real
+        public List<Mpokemon> Listapokemon
         {
             get { return _Listapokemon; }
             set
             {
                 SetValue(ref _Listapokemon, value);
-                OnpropertyChanged();
+                OnpropertyChanged();//es nesario para actualizar tus datos si despues de hacer algun cambio a tus registros o tiempo real
+
             }
         }
         #endregion
         #region PROCESOS
-        public async Task Mostrardetallespokemon()
-        {
-            await Navigation.PushAsync(new Mostrarpokemon());
-        }
         public async Task Mostrarpokemon()
         {
-            var function = new Dpokemon();
-            Listapokemon = await function.MostrarPokemones();
+            var funcion = new Dpokemon();
+            Listapokemon = await funcion.MostrarPokemon2();//Cambiar esto a MostrarPokemon 2 para que saea en tiempo real
         }
-        public async Task Iraregistro()
+
+        public async Task IrARegistro()
         {
             await Navigation.PushAsync(new Registrarpokemon());
         }
-        public void ProcesoSimple()
+        public async Task IraEditar(Mpokemon poquimon)
         {
-
+            await Navigation.PushAsync(new Mostrarpokemon(poquimon));
         }
-        #endregion
+
+        #endregion.
+
         #region COMANDOS
-        public ICommand Iraregistrocommand => new Command(async () => await Iraregistro());
-        public ICommand Mostrardetallespokemoncommand => new Command(async () => await Mostrardetallespokemon());
-        public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
+        public ICommand IrARegistrocommand => new Command(async () => await IrARegistro());
+        public ICommand IraEditarcommand => new Command<Mpokemon>(async (p) => await IraEditar(p));
         #endregion
+
+
+
+
+
+
+
+        ///////////////////////////
+
+
     }
 }
 
